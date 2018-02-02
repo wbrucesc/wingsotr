@@ -26,6 +26,8 @@ public class MainController {
     public String menu(Model model) {
         model.addAttribute("salads", itemRepo.findAllByCategory("Salad"));
         model.addAttribute("wings", itemRepo.findAllByCategory("Wing"));
+        model.addAttribute("apps", itemRepo.findAllByCategory("App"));
+        model.addAttribute("sides", itemRepo.findAllByCategory("Side"));
         return "menu";
     }
 

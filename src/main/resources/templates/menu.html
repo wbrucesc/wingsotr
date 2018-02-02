@@ -30,7 +30,43 @@
         </nav>
         <h2>MENU</h2>
 
+        <h4>Wings</h4>
+        <em>All wing sizes are served w/ranch or bleu cheese dressing. Wing combos are served w/french fries, raw fries, fried okra, or side salad and a can drink. </em>
+        <em>Raw fries are thinly sliced potatoes cooked a little crispy and a little floppy with seasoning.</em>
+        <div class="card">
+            <div class="card-body">
+                <ul class="list-group" th:each="wing : ${wings}">
+                    <strong><li class="list-group-item" th:text="${wing.name + ' -    $' + wing.price}"></li></strong>
+                    <em><p th:if="${wing.getDescription() != null}" th:text="${wing.description}"></p></em>
+                </ul>
+
+            </div>
+            <h5>Wing Flavors</h5>
+            <em>Create your own wing flavor by combining 2 or 3 flavors. $0.50 extra per added flavor.</em>
+            <em>Have your wings breaded for an additional $1 per quantity of 6 or 10 wings.</em>
+            <div class="card">
+                <h6 class="card-title">Wet</h6>
+                <h7 class="card-body">
+                    Teriyaki, *Spicy Teriyaki, Teriyaki Bbq,* Hot Bbq,Buttery Bbq, Honey Bbq, *Chipotle Bbq, *Kansas
+                    City Bbq, Vinegar Bbq, *Kicking Korean, Garlic Butter
+                    Garlic Parmesan, Garlic Parmesan Ranch, Lemon Pepper Garlic, Honey Mustard, Bourbon Molasses, Carolina Gold
+                </h7>
+            </div>
+            <div class="card">
+                <h6 class="card-title">Dry</h6>
+                <h7 class="card-body">
+                    Jerk, *Cajun, Rotisserie, *Garlic Sriracha, Old Bay, Mojito Lime, Lemon Pepper, Garlic Pepper
+                </h7>
+            </div>
+            <div class="card">
+                <h6 class="card-title">Too Hot</h6>
+                <h7 class="card-body">Ghost Pepper, Carolina Reaper, Trinidad Scorpion</h7>
+            </div>
+        </div>
+
         <h4>Salads</h4>
+        <em>Dressing choices are ranch, bleu cheese, greek, or lemon parmesan.</em>
+        <em>Add chicken (fried or grilled) to any salad for $2.00 or add any wing sauce for an additional $0.50.</em>
         <div class="card" th:each="salad : ${salads}">
             <div class="card-body">
                 <strong><h5 th:text="${salad.name + ' -    $' + salad.price}"></h5></strong>
@@ -38,26 +74,21 @@
             </div>
         </div>
 
-        <h4>Wings</h4>
-        <div class="card">
+        <h4>Appetizers</h4>
+        <div class="card" th:each="app: ${apps}">
             <div class="card-body">
-                <ul class="list-group" th:each="wing : ${wings}">
-                    <strong><li class="list-group-item" th:text="${wing.name + ' -    $' + wing.price}"></li></strong>
-                    <em><p th:if="${wing.getDescription() != null}" th:text="${wing.description}"></p></em>
-                </ul>
-                <!--<strong><h5 th:text="${wing.name + ' -    $' + wing.price}"></h5></strong>-->
+                <strong><h5 th:text="${app.name + ' -    $' +  app.price}"></h5></strong>
+                <p th:text="${app.description}"></p>
             </div>
-            <h5>Wing Sauces</h5>
-            <h6>Wet</h6>
-                <h7>Teriyaki, *Spicy Teriyaki, Teriyaki Bbq,* Hot Bbq,Buttery Bbq, Honey Bbq, *Chipotle Bbq, *Kansas
-                    City Bbq, Vinegar Bbq, *Kicking Korean, Garlic Butter
-                    Garlic Parmesan, Garlic Parmesan Ranch, Lemon Pepper Garlic, Honey Mustard, Bourbon Molasses, Carolina Gold
-                </h7>
-            <h6>Dry</h6>
-                <h7>Jerk, *Cajun, Rotisserie, *Garlic Sriracha, Old Bay, Mojito Lime, Lemon Pepper, Garlic Pepper</h7>
-            <h6>Too Hot</h6>
-                <h7>Ghost Pepper, Carolina Reaper, Trinidad Scorpion</h7>
         </div>
+
+        <h4>Sides</h4>
+        <div class="card" th:each="side: ${sides}">
+            <div class="card-body">
+                <strong><h5 th:text="${side.name + ' -   $' + side.price} "></h5></strong>
+            </div>
+        </div>
+
 
 
 
